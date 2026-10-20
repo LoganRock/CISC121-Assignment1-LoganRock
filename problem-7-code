@@ -1,0 +1,30 @@
+def solution(X, A):
+
+  # This function will determine if and when an array containing integers satisfies the condition of containing every integer value from 1 to X.
+
+  def sortleafarray(A):
+
+  # This function will transform the array into a dictionary and sort it based on integer value, removing duplicate values
+
+    leaf_dict = dict(enumerate(A)) # Transform array into a dictionary with index (aka seconds) and integer value as a the respective key value pair
+    sorted_dict = dict(sorted(leaf_dict.items(), key=lambda item: item[1])) # Dictionary is sorted by integer value in ascending order
+
+    # We want to keep only the first occurrence of each value (which has the smallest index/key)
+    seen_values = set()
+    unique_val_dict = {}
+
+    for key, value in sorted_dict.items():
+      if value not in seen_values:
+         seen_values.add(value)
+         unique_val_dict[key] = value
+
+    return unique_val_dict
+
+  sorted_leaf_dict = sortleafarray(A)
+
+  #Once sorted, we can check if all integer values are present (will be present if # of values = X)
+
+  if len(sorted_leaf_dict) == X:
+    return max(sorted_leaf_dict.keys()) # Return highest key (sec leaf is dropped)
+  else:
+    return -1
