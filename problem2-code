@@ -1,0 +1,8 @@
+def solution(A):
+    seen = set()
+    for number in A:
+        if number in seen:
+            seen.remove(number)
+        else:
+            seen.add(number)
+    return seen.pop()
