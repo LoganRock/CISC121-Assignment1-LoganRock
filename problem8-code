@@ -1,0 +1,19 @@
+def solution(A):
+    # This function will tell us how many times 0 occurs before a 1
+    # (each 0 or 1 representing a unique occurrence)
+
+    zero_count = 0
+    zero_before_one = 0
+
+    for num in A:
+        # For each element that is 0, add 1 to the 0 count
+        if num == 0:
+            zero_count += 1
+        else:
+            # For each element that is 1, add the number of previous 0s
+            zero_before_one += zero_count
+
+            if zero_before_one > 1000000000:
+                return -1
+
+    return zero_before_one
