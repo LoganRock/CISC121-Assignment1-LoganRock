@@ -1,0 +1,15 @@
+def solution(A):
+
+
+ # This function will provide the lowest missing integer > 0 in any array of integers
+
+
+ nums = set(A) # convert array into set (this will remove all duplicates)
+
+
+ cur_num = 1 # create variable of lowest positive int > 0
+
+
+ while cur_num in nums: # if this number is within the set, add 1
+   cur_num += 1
+ return cur_num # once this number is not found, return it (as it is the missing int)
