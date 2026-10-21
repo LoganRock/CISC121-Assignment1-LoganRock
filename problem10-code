@@ -1,0 +1,10 @@
+def solution(A,B,K):
+    
+  #This function will tell us how many numbers between A and B (inclusive) are divisble by k
+
+  mult_before_A = (A-1) // K # This expression tells us how many multiples of K exist before A (exclusive)
+  mult_before_B = B // K # This expression tells us how many multiples of K exist before B (inclusive)
+
+  mult_AB = mult_before_B - mult_before_A # it follows that the amount between the two is our solution
+
+  return mult_AB
