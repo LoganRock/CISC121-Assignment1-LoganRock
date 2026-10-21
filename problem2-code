@@ -1,8 +1,10 @@
 def solution(A):
-    seen = set()
-    for number in A:
+# Given an array of odd length such that each element is an integer with one duplicate except one, this function will find the element without a pair.
+
+    seen = set() 
+    for number in A: # for each number in the array, add it to the empty set, if this number is already in the set, remove it.
         if number in seen:
             seen.remove(number)
         else:
             seen.add(number)
-    return seen.pop()
+    return seen.pop() # after this process, one number should remain, pop this number as our final result
